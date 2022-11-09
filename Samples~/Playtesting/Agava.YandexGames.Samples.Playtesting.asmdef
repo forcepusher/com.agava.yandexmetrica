@@ -1,0 +1,16 @@
+{
+    "name": "Agava.YandexGames.Samples.Playtesting",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5486940dd4146634f9d474c1c474551e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

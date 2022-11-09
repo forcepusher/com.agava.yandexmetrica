@@ -1,0 +1,21 @@
+{
+  "name": "com.agava.yandexmetrica",
+  "version": "1.0.0",
+  "displayName": "Yandex Metrica",
+  "type": "library",
+  "unity": "2021.3",
+  "description": "Yandex Metrica Unity SDK for the WebGL platform.",
+  "license": "MIT",
+  "samples": [
+    {
+      "displayName": "Playtesting Sample",
+      "description": "Contains sample for uploading to Yandex Metrica.",
+      "path": "Samples~/Playtesting"
+    },
+	{
+      "displayName": "WebGL Template",
+      "description": "Template required for Yandex Metrica.",
+      "path": "Samples~/WebGLTemplates"
+    }
+  ]
+}
