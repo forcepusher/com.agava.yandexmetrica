@@ -13,7 +13,7 @@
       "path": "Samples~/Playtesting"
     },
 	{
-      "displayName": "WebGL Template",
+      "displayName": "WebGLTemplates",
       "description": "Template required for Yandex Metrica.",
       "path": "Samples~/WebGLTemplates"
     }
