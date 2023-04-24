@@ -10,6 +10,11 @@ namespace Agava.YandexMetrica.Samples
         [SerializeField]
         private InputField _eventDataField;
 
+        private void Awake()
+        {
+            YandexMetrica.CallbackLogging = true;
+        }
+
         public void OnSendButtonClick()
         {
             YandexMetrica.Send(_eventNameField.text, _eventDataField.text);
