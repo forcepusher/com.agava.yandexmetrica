@@ -1,4 +1,4 @@
-# com.agava.yandexgames  
+# com.agava.yandexmetrica  
   
 Make sure you have standalone [Git](https://git-scm.com/downloads) installed first. Reboot after installation.  
 In Unity, open "Window" -> "Package Manager".  
