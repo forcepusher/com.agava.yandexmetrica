@@ -7,7 +7,7 @@
   <title>{{{ PRODUCT_NAME }}}</title>
 
   <script type="text/javascript" >
-    window.yandexMetricaCounterId = parseInt({{{ METRICA_COUNTER_ID }}});
+    window.yandexMetricaCounterId = {{{ METRICA_COUNTER_ID }}};
   </script>
 
   <!-- Yandex.Metrika counter -->
@@ -71,24 +71,19 @@
     const progressBar = document.querySelector("#progress-bar");
 
     const unityStartLoadingTime = performance.now();
-    let unityEndLoadingTime = 0;
-    setTimeout(() => {
-      createUnityInstance(document.querySelector("#unity-canvas"), settings, (progress) => {
-        progressBar.style.right = 100 * (1 - progress) + "%";
-      }).then((unityInstance) => {
-        progressBar.style.display = "none";
-        unityEndLoadingTime = performance.now();
-        unityInstance.Module.errorHandler = (errorMessage) => {
-          const unityCrashTime = performance.now();
-          const unityCrashPlaytime = unityEndLoadingTime === 0 ? 0 : (unityCrashTime - unityEndLoadingTime) / 1000;
-          ym(window.yandexMetricaCounterId, 'reachGoal', 'unityGameCrash', { unityCrashPlaytime: unityCrashPlaytime });
-        };
-        ym(window.yandexMetricaCounterId,'reachGoal','unityStart', { unityLoadTime: (unityEndLoadingTime - unityStartLoadingTime) / 1000 });
-      }).catch((errorMessage) => {
-        ym(window.yandexMetricaCounterId, 'reachGoal', 'unityLoadingCrash');
-        alert(errorMessage);
-      });
-    }, 500); // Wait half a second before loading. Makes page more responsive on reload.
+    createUnityInstance(document.querySelector("#unity-canvas"), settings, (progress) => {
+      progressBar.style.right = 100 * (1 - progress) + "%";
+    }).then((unityInstance) => {
+      progressBar.style.display = "none";
+      const unityEndLoadingTime = performance.now();
+      unityInstance.Module.errorHandler = (errorMessage) => {
+        ym(window.yandexMetricaCounterId, 'reachGoal', 'unityGameCrash', { gameCrashError: errorMessage });
+      };
+      ym(window.yandexMetricaCounterId,'reachGoal','unityStart', { unityLoadTime: (unityEndLoadingTime - unityStartLoadingTime) / 1000 });
+    }).catch((errorMessage) => {
+      ym(window.yandexMetricaCounterId, 'reachGoal', 'unityLoadingCrash', { loadingCrashError: errorMessage });
+      alert(errorMessage);
+    });
   </script>
 </body>
 
