@@ -1,6 +1,6 @@
 {
   "name": "com.agava.yandexmetrica",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "displayName": "Yandex Metrica",
   "type": "library",
   "unity": "2020.3",
